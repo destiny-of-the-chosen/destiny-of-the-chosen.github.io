@@ -1,0 +1,21 @@
+.login-register {
+    text-align: center;
+}
+
+.login-register>form>div>input {
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 50%;
+    height: 3rem;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 30px;
+}
+
+
+.registered-question > label{
+    margin: 2rem;
+    display: block;
+}
