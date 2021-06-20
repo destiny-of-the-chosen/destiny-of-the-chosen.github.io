@@ -1,4 +1,4 @@
-import { html, render } from '../node_modules/lit-html/lit-html.js';
+import { html, render } from '//unpkg.com/lit-html/lit-html?module';
 import page from '//unpkg.com/page/page.mjs';
 
 import * as api from './utility/proxy.js';
