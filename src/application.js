@@ -11,6 +11,7 @@ api.setHost('http://localhost:3030');
 
 page('/', middleware, homePage);
 page('/home', middleware, homePage);
+page('/404', middleware, homePage);
 page('/login', middleware, loginPage);
 page('/register', middleware, registerPage);
 

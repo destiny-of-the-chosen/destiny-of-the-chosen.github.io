@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,29 @@
     <title>Destiny Of The Chosen</title>
     <link rel="stylesheet" href="/static/style.css">
     <script type="module" src="/src/application.js"></script>
+    <style type="text/css">
+        body:before {
+            content: attr(message);
+        }
+    </style>
 </head>
+
 <body>
-    
+    <script>
+        (function () {
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location.href) {
+                history.replaceState(null, null, redirect);
+                // REMOVE THIS - just showing the redirect route in the UI
+                document.body.setAttribute('message', 'This page was redirected by 404.html, from the route: ' + redirect);
+            }
+            else {
+                // REMOVE THIS - just showing the redirect route in the UI
+                document.body.setAttribute('message', 'This page was loaded directly from the index.html file');
+            }
+        })();
+    </script>
 </body>
+
 </html>
