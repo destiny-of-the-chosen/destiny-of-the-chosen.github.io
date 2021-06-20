@@ -1,74 +1,92 @@
+/* Body CSS */
+
 body {
     font-family: "Papyrus", "Garamond", "sans-serif";
-    background-color: #000000;
-    font-size: 35px;
-    font-weight: 900;
+    font-size: 220%;
+    font-weight: bolder;
     letter-spacing: 6px;
     height: 768px;
     width: 1366px;
-    zoom: 97.5%;
+    zoom: 91.8%;
 }
 
+/* Main CSS */
+
 main {
-    height: 85%;
+    height: 80%;
     width: 100%;
-    margin: 0%;
-    padding: 0%;
-    background-color: #28A352;
+    background-color: #000000;
 }
+
+/* Header CSS */
 
 .nav {
     width: 100%;
+    height: 10%;
     background-color: #1B486B;
-    display: inline-block;
     color: #B2DB34;
+    display: inline-block;
+    margin-bottom: -1.35%;
 }
+
 
 .header-home-button {
-    display: inline-block;
-    margin-left: 2rem;
+    width: 40%;
+    padding: 1% 1% 1% 3%;
+    float: left;
 }
 
+
 .header-links {
-    display: inline-block;
+    width: 50%;
+    float: right;
+    padding: 1% 3% 1% 3%;
+    text-align: center;
+    align-content: right;
 } 
 
-.nav>ul>li {
-    margin-left: 1rem;
+.header-links>.nav-item {
+    padding-left: 7%;
+    float: right;
 }
 
 .nav-link {
     color: #B2DB34;
-}
-
-a:link {
     text-decoration: none;
 }
 
-.nav-item {
-    display: inline-block;
+.nav-link:hover {
+    color: #baf508;
 }
+
+.nav-item {
+    float: left;
+}
+
+/* Footer CSS */
 
 .page-footer {
     background-color: #1B486B;
-    height: 5rem;
+    height: 10%;
     width: 100%;
-    padding: 0%;
-    margin: 0%;
     text-align: center;
 }
 
 .page-footer-text {
-    padding-top: 1rem;
+    padding-top: 1%;
     color: #B2DB34;
+    position: relative;
 }
 
+/* Buttons CSS */
+
 .primary-button {
-    font-size: 35px;
+    margin-top: 1%;
+    font-size: 100%;
     font-family: "Papyrus", "Garamond", "sans-serif";
     background-color: #1b77bd;
-    border-radius: 0.2rem;
-    padding: 0.2rem 0.7rem 0.2rem 0.7rem;
+    border-radius: 12px;
+    padding: 0.4% 0.7% 0.4% 0.7%;
     border: none;
 }
 
