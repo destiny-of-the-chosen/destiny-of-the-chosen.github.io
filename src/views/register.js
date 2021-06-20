@@ -1,4 +1,4 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html } from '//unpkg.com/lit-html/lit-html?module';
 
 const registerTemplate = (onSubmit, errorMessage) => html`
 <section class="login-register">

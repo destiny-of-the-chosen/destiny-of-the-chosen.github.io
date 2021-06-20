@@ -1,4 +1,4 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html } from '//unpkg.com/lit-html/lit-html?module';
 
 const homeTemplate = (isUser) => html`
 <img class="home-picture" src="../../images/home-image.jpg" alt="home picture">`;
