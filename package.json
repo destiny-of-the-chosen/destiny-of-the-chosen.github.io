@@ -4,7 +4,8 @@
   "description": "RPG/Collection Game",
   "main": "application.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "dev": "lite-server"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
   "dependencies": {
     "lit-html": "1.3.0",
     "page": "1.11.6"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
   }
 }

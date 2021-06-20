@@ -56,22 +56,26 @@ function bodyTemplate(logout, isUser, email) {
 function headerTemplate(logout, isUser, email) {
     return html`
     <nav class="nav">
-        <a class="nav-link" href="/home">Destiny Of The Chosen</a>
-        <ul class="nav-item">
-            ${isUser ? html`
-            <li class="nav-item">
-                <a class="nav-link">Welcome, email: ${email}</a>
-            </li>
-            <li class="nav-item">
-                <a @click=${logout} class="nav-link" href="javascript:void(0)">Logout</a>
-            </li>` : html`
-            <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
-            </li>`}
-        </ul>
+        <div class="header-home-button">
+            <a class="nav-link" href="/home">Destiny Of The Chosen</a>
+        </div>
+        <div class="header-links">
+            <ul class="nav-item">
+                ${isUser ? html`
+                <li class="nav-item">
+                    <a class="nav-link">Welcome, email: ${email}</a>
+                </li>
+                <li class="nav-item">
+                    <a @click=${logout} class="nav-link" href="javascript:void(0)">Logout</a>
+                </li>` : html`
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>`}
+            </ul>
+        </div>
     </nav>`;
 }
 

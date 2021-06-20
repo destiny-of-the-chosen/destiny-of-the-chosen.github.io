@@ -1,5 +1,6 @@
 .login-register {
     text-align: center;
+    margin-top: 5rem;
 }
 
 .login-register>form>div>input {
@@ -14,8 +15,7 @@
     font-size: 30px;
 }
 
-
-.registered-question > label{
+.registered-question > label {
     margin: 2rem;
     display: block;
 }
