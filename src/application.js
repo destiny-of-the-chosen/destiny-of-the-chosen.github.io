@@ -2,12 +2,12 @@ import { html, render } from '//unpkg.com/lit-html/lit-html?module';
 import page from '//unpkg.com/page/page.mjs';
 
 import * as api from './utility/proxy.js';
-import { isUser, spinner } from './utility/helpers.js';
+import { getUser, spinner } from './utility/helpers.js';
 import { homePage } from './views/home.js';
 import { loginPage } from './views/login.js';
 import { registerPage } from './views/register.js';
 
-api.setHost('http://localhost:3030');
+window.api = api;
 
 page('/', middleware, homePage);
 page('/home', middleware, homePage);
@@ -26,11 +26,11 @@ function middleware(ctx, next) {
     ctx.spinner = () => render(spinner(), main);
     ctx.setNav = setNav;
     ctx.api = api;
-    ctx.isUser = isUser;
+    ctx.user = getUser;
 
     function setNav() {
         const email = sessionStorage.getItem('email');
-        render(bodyTemplate(logout, isUser(), email), document.body);
+        render(bodyTemplate(logout, getUser()), document.body);
     }
 
     async function logout() {
@@ -47,26 +47,26 @@ function middleware(ctx, next) {
     next();
 }
 
-function bodyTemplate(logout, isUser, email) {
+function bodyTemplate(logout, user) {
     return html`
-        ${headerTemplate(logout, isUser, email)}
+        ${headerTemplate(logout, user)}
         <main></main>
         ${footerTemplate()}`;
 }
 
-function headerTemplate(logout, isUser, email) {
+function headerTemplate(logout, user) {
     return html`
     <nav class="nav">
         <div class="header-home-button">
             <a class="nav-link" href="/home">Destiny Of The Chosen</a>
         </div>
         <div class="header-links">
-            ${isUser ? html`
-            <div class="nav-item">
-                <a class="nav-link">Welcome, email: ${email}</a>
-            </div>
+            ${getUser ? html`
             <div class="nav-item">
                 <a @click=${logout} class="nav-link" href="javascript:void(0)">Logout</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link">Welcome: ${user.username}</a>
             </div>` : html`
             <div class="nav-item">
                 <a class="nav-link" href="/register">Register</a>

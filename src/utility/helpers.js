@@ -1,13 +1,19 @@
 import { html } from '//unpkg.com/lit-html/lit-html?module';
 
 export {
-    isUser,
+    getUser,
     spinner
 }
 
-function isUser() {
-    const token = sessionStorage.getItem('accessToken');
-    return token !== null;
+function getUser() {
+    const user = {
+        'username': sessionStorage.getItem('username'),
+        'email': sessionStorage.getItem('email'),
+        'userId': sessionStorage.getItem('userId'),
+        'sessionToken': sessionStorage.getItem('sessionToken')
+    }
+    
+    return user;
 }
 
 const spinner = () => html`

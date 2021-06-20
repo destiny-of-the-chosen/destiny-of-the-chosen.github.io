@@ -1,6 +1,6 @@
 import { html } from '//unpkg.com/lit-html/lit-html?module';
 
-const homeTemplate = (isUser) => html`
+const homeTemplate = (user) => html`
 <img class="home-picture" src="../../images/home-image.jpg" alt="home picture">`;
 
 export async function homePage(ctx) {
@@ -9,7 +9,7 @@ export async function homePage(ctx) {
 
     async function loadHomePage() {
         try {
-            ctx.render(homeTemplate(ctx.isUser()));
+            ctx.render(homeTemplate(ctx.user()));
         } catch (error) {
             alert(error.message);
         }

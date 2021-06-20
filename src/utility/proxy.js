@@ -1,7 +1,6 @@
 import { performGetRequest, performPostRequest, performPutRequest, performDeleteRequest } from './requests.js';
 
 export {
-    setHost,
     logUserRequest,
     logoutUserRequest,
     registerUserRequest,
@@ -17,11 +16,9 @@ export {
     revokeALikeFromMovieRequest
 }
 
-let host;
-
-function setHost(hostUri) {
-    host = hostUri;
-}
+const host = 'https://parseapi.back4app.com';
+const appId = 'gog7258ODmftOaMjroCSU9wa6beKCXE44xuBDFNT';
+const apiKey = '4crFsXkhi1WXnCXqNYE5QBDOjbq1uZ7PGzNsN7XD';
 
 //User requests
 async function logUserRequest(email, password) {
@@ -32,18 +29,25 @@ async function logUserRequest(email, password) {
 }
 
 async function logoutUserRequest() {
-    const token = { 'X-Authorization': sessionStorage.getItem('accessToken') };
-    sessionStorage.removeItem('accessToken');
+    const token = { 'X-Authorization': sessionStorage.getItem('sessionToken') };
+    sessionStorage.removeItem('sessionToken');
     sessionStorage.removeItem('userId');
     sessionStorage.removeItem('email');
     await performDeleteRequest(host + '/users/logout', token);
 }
 
-async function registerUserRequest(email, password) {
-    const data = await performPostRequest(host + '/users/register', {}, { email, password });
-    sessionStorage.setItem('accessToken', data.accessToken);
-    sessionStorage.setItem('userId', data._id);
-    sessionStorage.setItem('email', data.email);
+async function registerUserRequest(username, email, password) {
+    const data = await performPostRequest(host + '/users',
+        {
+            'X-Parse-Application-Id': appId,
+            'X-Parse-REST-API-Key': apiKey,
+            'X-Parse-Revocable-Session': '1'
+        },
+        { username, email, password });
+    sessionStorage.setItem('username', username);
+    sessionStorage.setItem('email', email);
+    sessionStorage.setItem('userId', data.objectId);
+    sessionStorage.setItem('sessionToken', data.sessionToken);
 }
 
 //Movie requests
@@ -61,7 +65,7 @@ async function getMovieLikesRequest(id) {
 
 async function createMovieRequest(movie) {
     const token = { 'X-Authorization': sessionStorage.getItem('accessToken') };
-    return await performPostRequest(host + '/data/movies', token, movie );
+    return await performPostRequest(host + '/data/movies', token, movie);
 }
 
 async function editMovieRequest(id, movie) {
@@ -87,7 +91,7 @@ async function alreadyLikedRequest(movieId, userId) {
 
 async function addLikeToMovieRequest(id) {
     const token = { 'X-Authorization': sessionStorage.getItem('accessToken') };
-    return await performPostRequest(host + '/data/likes', token, id );
+    return await performPostRequest(host + '/data/likes', token, id);
 }
 
 async function revokeALikeFromMovieRequest(id) {
