@@ -6,14 +6,14 @@ export {
 }
 
 function getUser() {
-    const user = {
-        'username': sessionStorage.getItem('username'),
-        'email': sessionStorage.getItem('email'),
-        'userId': sessionStorage.getItem('userId'),
-        'sessionToken': sessionStorage.getItem('sessionToken')
-    }
-    
-    return user;
+    const username = sessionStorage.getItem('username');
+    const email = sessionStorage.getItem('email');
+    const userId = sessionStorage.getItem('userId');
+    const sessionToken = sessionStorage.getItem('sessionToken');
+
+    if (userId == null) return null;
+
+    return { username, email, userId, sessionToken };
 }
 
 const spinner = () => html`

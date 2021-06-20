@@ -8,6 +8,7 @@ import { loginPage } from './views/login.js';
 import { registerPage } from './views/register.js';
 
 window.api = api;
+window.user = getUser;
 
 page('/', middleware, homePage);
 page('/home', middleware, homePage);
@@ -61,7 +62,7 @@ function headerTemplate(logout, user) {
             <a class="nav-link" href="/home">Destiny Of The Chosen</a>
         </div>
         <div class="header-links">
-            ${getUser ? html`
+            ${user ? html`
             <div class="nav-item">
                 <a @click=${logout} class="nav-link" href="javascript:void(0)">Logout</a>
             </div>
