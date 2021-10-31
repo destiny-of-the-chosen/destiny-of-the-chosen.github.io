@@ -1,5 +1,32 @@
 {
+  "name": "destiny-of-the-chosen",
+  "version": "1.0.0",
+  "description": "RPG/Collection Game",
+  "main": "application.js",
+  "scripts": {
+    "test": "test",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/destiny-of-the-chosen/destiny-of-the-chosen.github.io.git"
+  },
+  "keywords": [
+    "RPG",
+    "Collection",
+    "Game"
+  ],
+  "author": "Simeon Balabanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/destiny-of-the-chosen/destiny-of-the-chosen.github.io/issues"
+  },
+  "homepage": "https://github.com/destiny-of-the-chosen/destiny-of-the-chosen.github.io#readme",
   "dependencies": {
-    "bootstrap": "^5.1.3"
+    "lit-html": "1.3.0",
+    "page": "1.11.6"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
   }
 }
