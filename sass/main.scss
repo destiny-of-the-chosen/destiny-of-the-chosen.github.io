@@ -1,0 +1,24 @@
+// custom variables
+$primary: #1B486B;
+$secondary: #B2DB34;
+$green: #baf508;
+$link-color: #B2DB34;
+$link-hover-color: #baf508;
+$a-tags: #B2DB34;
+$a-tags-hover: #baf508;
+
+// import the functions & variables
+@import "C:/Java/JavaWEB/MyProject/DestinyOfTheChosen/node_modules/bootstrap/scss/_functions";
+@import "C:/Java/JavaWEB/MyProject/DestinyOfTheChosen/node_modules/bootstrap/scss/_variables";
+
+// custom theme colors
+$custom-theme-colors: (
+        "altlight": #f2ebfa,
+        "altdark": #522192
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+// Custom.scss
+// import bootstrap
+@import "C:/Java/JavaWEB/MyProject/DestinyOfTheChosen/node_modules/bootstrap/scss/bootstrap";
